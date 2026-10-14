@@ -1,7 +1,7 @@
 # Experiment 12: N-Queens using CSP and Backtracking
 
 ## Aim
-To solve the N-Queens problem using Constraint Satisfaction Problem (CSP) and backtracking in Python.
+To solve the N-Queens problem using Constraint Satisfaction Problem (CSP) and backtracking in Prolog.
 
 ## Theory
 The N-Queens problem requires placing N queens on an N × N chessboard so that no two queens attack each other.
@@ -20,7 +20,7 @@ The N-Queens problem requires placing N queens on an N × N chessboard so that n
 6. Print the solution when all queens are placed successfully.
 
 ## Program
-The program is provided in `n_queens.py`.
+The Prolog program is provided in [`n_queens.pl`](./n_queens.pl). Run with SWI-Prolog using `n_queens(4, Board).`
 
 ## Sample Output
 ```text
