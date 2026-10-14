@@ -2,7 +2,7 @@
 
 ## Aim
 
-To implement Simulated Annealing in Python to solve an optimization problem and demonstrate how it can escape local optima.
+To implement Simulated Annealing in Prolog to solve an optimization problem and demonstrate how it can escape local optima.
 
 ## Theory
 
@@ -33,7 +33,7 @@ The search is restricted to integer values from `-10` to `10`.
 
 ## Program
 
-The source code is available in [`simulated_annealing.py`](./simulated_annealing.py).
+The Prolog source code is available in [`simulated_annealing.pl`](./simulated_annealing.pl). Run with SWI-Prolog using `anneal(0, X, Value).`
 
 ## Sample Output
 
@@ -45,7 +45,7 @@ Maximum function value: 8.89
 
 ## Result
 
-Simulated Annealing was implemented successfully in Python to search for a high-value solution using probabilistic acceptance and gradual cooling.
+Simulated Annealing was implemented successfully in Prolog to search for a high-value solution using probabilistic acceptance and gradual cooling.
 
 ## Conclusion
 
