@@ -1,18 +1,15 @@
 % Experiment 7: Greedy Best-First Search
 % Selects the next node with the lowest heuristic value.
 
+:- use_module(library(pairs)).
+
 edge(a, b). edge(a, c).
 edge(b, d). edge(b, e).
 edge(c, f). edge(c, e).
 edge(d, g). edge(e, g). edge(f, g).
 
-heuristic(a, 7).
-heuristic(b, 4).
-heuristic(c, 5).
-heuristic(d, 2).
-heuristic(e, 1).
-heuristic(f, 3).
-heuristic(g, 0).
+heuristic(a, 7). heuristic(b, 4). heuristic(c, 5).
+heuristic(d, 2). heuristic(e, 1). heuristic(f, 3). heuristic(g, 0).
 
 connected(X, Y) :- edge(X, Y).
 connected(X, Y) :- edge(Y, X).
