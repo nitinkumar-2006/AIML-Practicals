@@ -1,7 +1,7 @@
 # Experiment 11: Map Coloring using CSP and Backtracking
 
 ## Aim
-To solve the Map Coloring problem using Constraint Satisfaction Problem (CSP) and backtracking in Python.
+To solve the Map Coloring problem using Constraint Satisfaction Problem (CSP) and backtracking in Prolog.
 
 ## Theory
 Map Coloring is a CSP problem in which adjacent regions must have different colors.
@@ -20,7 +20,7 @@ Map Coloring is a CSP problem in which adjacent regions must have different colo
 6. Print the solution when all regions are colored.
 
 ## Program
-The program is provided in `map_coloring.py`.
+The Prolog program is provided in [`map_coloring.pl`](./map_coloring.pl). Run with SWI-Prolog using `map_coloring(Solution).`
 
 ## Sample Output
 ```text
