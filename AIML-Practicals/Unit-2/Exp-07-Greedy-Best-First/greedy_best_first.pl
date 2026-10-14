@@ -1,5 +1,5 @@
 % Experiment 7: Greedy Best-First Search
-% Selects the next node with the lowest heuristic value.
+% Selects the frontier path whose final node has the lowest heuristic.
 
 :- use_module(library(pairs)).
 
@@ -15,20 +15,20 @@ connected(X, Y) :- edge(X, Y).
 connected(X, Y) :- edge(Y, X).
 
 greedy_best_first(Start, Goal, Path) :-
-    greedy_queue([[Start]], Goal, [], RevPath),
+    heuristic(Start, H),
+    greedy_queue([H-[Start]], Goal, [], RevPath),
     reverse(RevPath, Path).
 
-greedy_queue([[Goal|Rest]|_], Goal, _, [Goal|Rest]).
-greedy_queue([[Node|Rest]|Queue], Goal, Visited, Path) :-
+greedy_queue([_- [Goal|Rest]|_], Goal, _, [Goal|Rest]).
+greedy_queue([_- [Node|Rest]|Queue], Goal, Visited, Path) :-
     findall(H-[Next,Node|Rest],
         ( connected(Node, Next),
           \+ member(Next, [Node|Rest]),
           \+ member(Next, Visited),
           heuristic(Next, H)
-        ), Candidates),
-    keysort(Candidates, Sorted),
-    pairs_values(Sorted, NewPaths),
-    append(Queue, NewPaths, Queue1),
-    greedy_queue(Queue1, Goal, [Node|Visited], Path).
+        ), Children),
+    append(Queue, Children, Frontier),
+    keysort(Frontier, Ordered),
+    greedy_queue(Ordered, Goal, [Node|Visited], Path).
 
 % SWI-Prolog query: ?- greedy_best_first(a, g, Path).
