@@ -1,0 +1,19 @@
+name: Prolog practical tests
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Install SWI-Prolog
+        run: sudo apt-get update && sudo apt-get install -y swi-prolog-nox
+      - name: Run practical tests
+        run: swipl -q -s AIML-Practicals/tests.pl -g run_tests -t halt
