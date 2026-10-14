@@ -2,7 +2,7 @@
 
 ## Aim
 
-To implement Greedy Best-First Search using a heuristic function to find a path between two nodes in a graph.
+To implement Greedy Best-First Search using a heuristic function to find a path between two nodes in a graph using Prolog.
 
 ## Theory
 
@@ -15,9 +15,9 @@ Unlike BFS, Greedy Best-First Search does not explore nodes level by level. It f
 ## Algorithm
 
 1. Start the program.
-2. Represent the graph using a dictionary.
+2. Represent the graph using Prolog facts.
 3. Assign heuristic values to the nodes.
-4. Add the starting node and its heuristic value to a priority queue.
+4. Add the starting node to the search queue.
 5. Remove the node with the lowest heuristic value.
 6. If the goal is reached, return the path.
 7. Otherwise, add its unvisited neighbours to the queue.
@@ -25,7 +25,7 @@ Unlike BFS, Greedy Best-First Search does not explore nodes level by level. It f
 
 ## Program
 
-The source code is available in [`greedy_best_first.py`](./greedy_best_first.py).
+The Prolog source code is available in [`greedy_best_first.pl`](./greedy_best_first.pl). Run it with SWI-Prolog and query `greedy_best_first(a, g, Path).`
 
 ## Sample Output
 
@@ -35,7 +35,7 @@ Path found: ['a', 'b', 'd', 'g']
 
 ## Result
 
-Greedy Best-First Search was implemented successfully in Python using a heuristic function to find a path in a graph.
+Greedy Best-First Search was implemented successfully in Prolog using a heuristic function to find a path in a graph.
 
 ## Conclusion
 
