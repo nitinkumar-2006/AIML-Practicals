@@ -1,92 +1,65 @@
 # Experiment 1: Student-Course Knowledge Base
 
 ## Aim
-
-To create a simple knowledge base in Prolog using facts and predicates, and retrieve information by asking queries (goals).
+To create a knowledge base in Prolog using facts and predicates, and retrieve information by asking queries (goals).
 
 ## Theory
-
-A knowledge base stores information in a form that a computer can use to answer questions. In Prolog, this information is represented using facts and rules.
-
-For this experiment, facts are used to store student names, course names, and the courses in which students are enrolled. Queries are then used to retrieve the required information.
+A knowledge base stores information that a computer can use to answer questions. In Prolog, information is represented using facts and rules. This experiment stores students, courses, and student enrolments as facts.
 
 ## Algorithm
-
-1. Start the program.
-2. Define facts for the students.
-3. Define facts for the available courses.
-4. Define enrolment facts to connect students with their courses.
-5. Ask queries to retrieve student, course, and enrolment information.
-6. Observe the answers returned by Prolog.
-7. Stop the program.
+1. Start SWI-Prolog.
+2. Define facts for students and courses.
+3. Define enrolment facts connecting students with courses.
+4. Load the source file.
+5. Query the knowledge base and observe the answers.
 
 ## Program
-
-The source code is available in [`student_course.pl`](./student_course.pl).
+The source code is available in [student_course.pl](./student_course.pl).
 
 ## Sample Queries and Output
 
-**Query 1: Display all students**
-
+**1. Display all students**
 ```prolog
 ?- student(X).
 ```
-
-Expected output:
-
+Expected answers include:
 ```text
-X = aarav ;
+X = nirnay ;
 X = riya ;
 X = kabir ;
-X = meera ;
+X = nitin ;
 X = ishan.
 ```
 
-**Query 2: Find the courses in which Aarav is enrolled**
-
+**2. Find courses for Nirnay**
 ```prolog
-?- enrolled(aarav, Course).
+?- enrolled(nirnay, Course).
 ```
-
-Expected output:
-
 ```text
 Course = ai ;
 Course = prolog.
 ```
 
-**Query 3: Find all students enrolled in AI**
-
+**3. Find all students enrolled in AI**
 ```prolog
 ?- enrolled(Student, ai).
 ```
-
-Expected output:
-
 ```text
-Student = aarav ;
+Student = nirnay ;
 Student = kabir ;
 Student = riya.
 ```
 
-**Query 4: Check whether Meera is a student**
-
+**4. Check whether Meera is a student**
 ```prolog
 ?- student(meera).
 ```
-
-Expected output:
-
 ```text
-true.
+false.
 ```
 
-*Note: In the Prolog console, press `;` to request another answer when multiple answers are available. The exact display may vary slightly by Prolog version.*
-
 ## Result
-
-The student-course knowledge base was created successfully using Prolog facts and predicates. Queries were used to retrieve student details, course enrolments, and matching records.
+The student-course knowledge base was created using Prolog facts and queries.
 
 ## Conclusion
-
-This experiment demonstrates how Prolog stores information as facts and answers questions through logical matching. It also introduces the basic idea of a knowledge base, which is an important part of rule-based artificial intelligence.
+This experiment demonstrates how Prolog represents facts and answers queries through logical matching. Press `;` to request another answer when multiple results are available.
