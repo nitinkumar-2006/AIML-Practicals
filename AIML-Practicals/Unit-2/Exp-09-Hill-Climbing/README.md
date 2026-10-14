@@ -2,7 +2,7 @@
 
 ## Aim
 
-To implement the Hill Climbing algorithm in Python to find an optimal solution for a given function.
+To implement the Hill Climbing algorithm in Prolog to find an optimal solution for a given function.
 
 ## Theory
 
@@ -30,7 +30,7 @@ Hill Climbing is simple to implement, but it can get stuck at a local optimum an
 
 ## Program
 
-The source code is available in [`hill_climbing.py`](./hill_climbing.py).
+The Prolog source code is available in [`hill_climbing.pl`](./hill_climbing.pl). Run with SWI-Prolog using `hill_climb(0, X, Value).`
 
 ## Sample Output
 
@@ -42,7 +42,7 @@ Maximum function value: 9
 
 ## Result
 
-The Hill Climbing algorithm was implemented successfully in Python to maximize the given objective function.
+The Hill Climbing algorithm was implemented successfully in Prolog to maximize the given objective function.
 
 ## Conclusion
 
