@@ -1,6 +1,5 @@
 % Experiment 10: Simulated Annealing
-% Integer search over -10..10. Uses a deterministic pseudo-random sequence
-% to keep the practical reproducible without external libraries.
+% Integer search over -10..10 with probabilistic acceptance.
 
 :- use_module(library(random)).
 
@@ -11,14 +10,15 @@ clamp(X, Low, High, Y) :-
     Y is max(Low, min(High, X)).
 
 anneal(Start, BestX, BestValue) :-
-    objective(Start, InitialValue),
-    anneal_steps(100, 10.0, 0.95, Start, InitialValue, Start, InitialValue,
-                 BestX, BestValue).
+    clamp(Start, -10, 10, InitialX),
+    objective(InitialX, InitialValue),
+    anneal_steps(100, 10.0, 0.95, InitialX, InitialValue,
+                 InitialX, InitialValue, BestX, BestValue).
 
 anneal_steps(0, _, _, _, _, BestX, BestValue, BestX, BestValue) :- !.
 anneal_steps(Count, Temp, Cooling, CurrentX, CurrentValue, BestX0, BestValue0,
              BestX, BestValue) :-
-    Step is random(3) - 1,
+    random_between(-1, 1, Step),
     Candidate0 is CurrentX + Step,
     clamp(Candidate0, -10, 10, Candidate),
     objective(Candidate, CandidateValue),
