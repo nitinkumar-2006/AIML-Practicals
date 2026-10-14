@@ -2,7 +2,7 @@
 
 ## Aim
 
-To implement the A* Search algorithm in Python to find an optimal path using path cost and heuristic estimates.
+To implement the A* Search algorithm in Prolog to find an optimal path using path cost and heuristic estimates.
 
 ## Theory
 
@@ -16,7 +16,7 @@ It uses the evaluation function:
 - `h(n)` is the estimated cost from the current node to the goal.
 - `f(n)` is the estimated total cost of the path.
 
-In this experiment, a weighted graph is represented using a Python dictionary. A priority queue selects the path with the lowest estimated total cost. The algorithm also keeps track of the best known cost to each node.
+In this experiment, a weighted graph is represented using Prolog facts. A priority queue selects the path with the lowest estimated total cost. The algorithm also keeps track of the best known cost to each node.
 
 A* can find an optimal path when its heuristic is admissible and the search correctly handles updated path costs.
 
@@ -34,7 +34,7 @@ A* can find an optimal path when its heuristic is admissible and the search corr
 
 ## Program
 
-The source code is available in [`a_star.py`](./a_star.py).
+The Prolog source code is available in [`a_star.pl`](./a_star.pl). Run with SWI-Prolog using `a_star(a, g, Path, Cost).`
 
 ## Sample Output
 
@@ -45,7 +45,7 @@ Total cost: 7
 
 ## Result
 
-The A* Search algorithm was implemented successfully in Python to find a path and calculate its total cost using path costs and heuristic estimates.
+The A* Search algorithm was implemented successfully in Prolog to find a path and calculate its total cost using path costs and heuristic estimates.
 
 ## Conclusion
 
