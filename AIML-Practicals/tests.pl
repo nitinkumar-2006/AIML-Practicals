@@ -46,7 +46,7 @@ test(n_queens) :-
 queens_board_valid(Board) :- queens_board_valid(Board, 1).
 queens_board_valid([], _).
 queens_board_valid([Column|Rest], Distance) :-
-    \+ member(Other, Rest),
+    \+ member(Column, Rest),
     queens_no_diagonal_conflict(Column, Rest, Distance),
     NextDistance is Distance + 1,
     queens_board_valid(Rest, NextDistance).
