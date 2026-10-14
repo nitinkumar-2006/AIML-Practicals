@@ -3,29 +3,29 @@
 
 :- use_module(library(pairs)).
 
-edge(a, b). edge(a, c).
-edge(b, d). edge(b, e).
-edge(c, f). edge(c, e).
-edge(d, g). edge(e, g). edge(f, g).
+greedy_edge(a, b). greedy_edge(a, c).
+greedy_edge(b, d). greedy_edge(b, e).
+greedy_edge(c, f). greedy_edge(c, e).
+greedy_edge(d, g). greedy_edge(e, g). greedy_edge(f, g).
 
-heuristic(a, 7). heuristic(b, 4). heuristic(c, 5).
-heuristic(d, 2). heuristic(e, 1). heuristic(f, 3). heuristic(g, 0).
+greedy_heuristic(a, 7). greedy_heuristic(b, 4). greedy_heuristic(c, 5).
+greedy_heuristic(d, 2). greedy_heuristic(e, 1). greedy_heuristic(f, 3). greedy_heuristic(g, 0).
 
-connected(X, Y) :- edge(X, Y).
-connected(X, Y) :- edge(Y, X).
+greedy_connected(X, Y) :- greedy_edge(X, Y).
+greedy_connected(X, Y) :- greedy_edge(Y, X).
 
 greedy_best_first(Start, Goal, Path) :-
-    heuristic(Start, H),
+    greedy_heuristic(Start, H),
     greedy_queue([H-[Start]], Goal, [], RevPath),
     reverse(RevPath, Path).
 
 greedy_queue([_- [Goal|Rest]|_], Goal, _, [Goal|Rest]).
 greedy_queue([_- [Node|Rest]|Queue], Goal, Visited, Path) :-
     findall(H-[Next,Node|Rest],
-        ( connected(Node, Next),
+        ( greedy_connected(Node, Next),
           \+ member(Next, [Node|Rest]),
           \+ member(Next, Visited),
-          heuristic(Next, H)
+          greedy_heuristic(Next, H)
         ), Children),
     append(Queue, Children, Frontier),
     keysort(Frontier, Ordered),
