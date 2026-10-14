@@ -1,34 +1,27 @@
+# Experiment 6: Breadth-First Search (BFS)
 
-% Experiment 6: Breadth-First Search
+## Aim
+To implement Breadth-First Search in Prolog to find a shortest path between two nodes in an unweighted graph.
 
-% Connections in the graph (undirected)
-edge(a, b).
-edge(a, c).
-edge(b, d).
-edge(b, e).
-edge(c, f).
-edge(d, g).
-edge(e, g).
-edge(f, g).
+## Theory
+Breadth-First Search explores nodes level by level. It uses a queue to visit all nodes at the current distance before moving to the next level. In an unweighted graph, BFS finds a path with the minimum number of edges.
 
-% Treat each connection as bidirectional
-connected(X, Y) :- edge(X, Y).
-connected(X, Y) :- edge(Y, X).
+## Algorithm
+1. Represent graph connections as Prolog facts.
+2. Place the starting node in a queue as the first path.
+3. Remove the first path from the queue.
+4. If its last node is the goal, return the path.
+5. Otherwise, add paths extended by unvisited neighbours to the end of the queue.
+6. Repeat until a path is found or the queue is empty.
 
-% BFS starts with the source in the queue
-bfs(Start, Goal, Path) :-
-    bfs_queue([[Start]], Goal, ReversedPath),
-    reverse(ReversedPath, Path).
+## Program
+See [bfs.pl](./bfs.pl). Run using SWI-Prolog with the query bfs(a, g, Path).
 
-% If the first path in the queue reaches the goal, return it
-bfs_queue([[Goal|Rest]|_], Goal, [Goal|Rest]).
+## Sample Output
+A valid shortest path is [a,b,d,g] (other equal-length paths may also be returned).
 
-% Otherwise, extend the first path and continue
-bfs_queue([ [Current|Rest] | OtherPaths], Goal, Path) :-
-    findall(
-        [Next, Current|Rest],
-        (connected(Current, Next), \+ member(Next, [Current|Rest])),
-        NewPaths
-    ),
-    append(OtherPaths, NewPaths, UpdatedQueue),
-    bfs_queue(UpdatedQueue, Goal, Path).
+## Result
+Breadth-First Search was implemented in Prolog to find a shortest path in an unweighted graph.
+
+## Conclusion
+This experiment demonstrates queue-based graph traversal and shortest-path search in Prolog.
