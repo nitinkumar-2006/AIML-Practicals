@@ -16,30 +16,30 @@
 :- consult('Unit-2/Exp-12-N-Queens-CSP/n_queens.pl').
 
 test(student_fact) :- student(nitin).
-test(student_course) :- enrolled(nirnay, ai).
+test(student_course) :- once(enrolled(nirnay, ai)).
 test(arithmetic) :- add(10, 5, 15), subtract(10, 5, 5), multiply(4, 3, 12), divide(10, 2, 5).
-test(factorial) :- factorial(5, 120).
-test(fibonacci) :- fibonacci(6, 8).
+test(factorial) :- once(factorial(5, 120)).
+test(fibonacci) :- once(fibonacci(6, 8)).
 test(list_append) :- append_lists([1,2], [3,4], [1,2,3,4]).
 test(list_reverse) :- reverse_list([a,b,c], [c,b,a]).
-test(list_member) :- member_search(b, [a,b,c]).
+test(list_member) :- once(member_search(b, [a,b,c])).
 test(list_length) :- list_length([1,2,3,4], 4).
-test(timetable) :- subject_classroom(ai, monday, room101).
-test(student_classification) :- student_category(aarav, topper), student_category(kabir, fail).
-test(bfs) :- bfs(a, g, Path), length(Path, 4), Path = [a,_,_,g].
-test(greedy_best_first) :- greedy_best_first(a, g, Path), Path = [a,_,_,g].
-test(a_star) :- a_star(a, g, Path, Cost), Path = [a,_,_,g], Cost =:= 7.
+test(timetable) :- once(subject_classroom(ai, monday, room101)).
+test(student_classification) :- once(student_category(aarav, topper)), once(student_category(kabir, fail)).
+test(bfs) :- once((bfs(a, g, Path), length(Path, 4), Path = [a,_,_,g])).
+test(greedy_best_first) :- once((greedy_best_first(a, g, Path), Path = [a,_,_,g])).
+test(a_star) :- once((a_star(a, g, Path, Cost), Path = [a,_,_,g], Cost =:= 7)).
 test(hill_climbing) :- hill_climb(0, 3, 9).
 test(simulated_annealing) :-
     anneal(0, X, Value),
     integer(X), X >= -10, X =< 10, number(Value).
 
 test(map_coloring) :-
-    map_coloring(Solution),
+    once(map_coloring(Solution)), 
     forall((member(A-CA, Solution), member(B-CB, Solution), neighbors(A, B)), CA \= CB).
 
 test(n_queens) :-
-    n_queens(4, Board),
+    once(n_queens(4, Board)), 
     length(Board, 4),
     queens_board_valid(Board).
 
