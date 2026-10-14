@@ -16,4 +16,5 @@ jobs:
       - name: Install SWI-Prolog
         run: sudo apt-get update && sudo apt-get install -y swi-prolog-nox
       - name: Run practical tests
-        run: swipl -q -s AIML-Practicals/tests.pl -g run_tests -t halt
+        working-directory: AIML-Practicals
+        run: swipl -q -s tests.pl -g run_tests -t halt
