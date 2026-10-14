@@ -37,16 +37,15 @@ This repository contains implementations of the practical experiments prescribed
 
 ## Repository Structure
 
-Each experiment is organized into its own directory containing the source code and a dedicated README file documenting the aim, theory, algorithm, implementation, sample queries or output, and conclusion.
+Each experiment is organized into its own directory containing the Prolog source code (`.pl`) and a dedicated README file documenting the aim, theory, algorithm, implementation, sample queries or output, and conclusion.
 
 ## Technologies Used
 
-- Prolog
-- Python
+- Prolog (SWI-Prolog)
 - Artificial Intelligence Search Algorithms
 - Constraint Satisfaction Problems (CSP)
 - Git and GitHub
 
 ## Purpose
 
-This repository serves as a record of academic practical work and a reference for learning fundamental AI concepts, logical programming, search algorithms, and problem-solving techniques.
+This repository serves as a record of academic practical work and a reference for learning fundamental AI concepts, logical programming, search algorithms, and problem-solving techniques. All twelve experiment programs are maintained in Prolog.
