@@ -3,7 +3,7 @@
 
 :- use_module(library(random)).
 
-objective(X, Value) :-
+anneal_objective(X, Value) :-
     Value is -((X - 3) * (X - 3)) + 10 * sin(2 * X).
 
 clamp(X, Low, High, Y) :-
@@ -11,7 +11,7 @@ clamp(X, Low, High, Y) :-
 
 anneal(Start, BestX, BestValue) :-
     clamp(Start, -10, 10, InitialX),
-    objective(InitialX, InitialValue),
+    anneal_objective(InitialX, InitialValue),
     anneal_steps(100, 10.0, 0.95, InitialX, InitialValue,
                  InitialX, InitialValue, BestX, BestValue).
 
@@ -21,7 +21,7 @@ anneal_steps(Count, Temp, Cooling, CurrentX, CurrentValue, BestX0, BestValue0,
     random_between(-1, 1, Step),
     Candidate0 is CurrentX + Step,
     clamp(Candidate0, -10, 10, Candidate),
-    objective(Candidate, CandidateValue),
+    anneal_objective(Candidate, CandidateValue),
     Delta is CandidateValue - CurrentValue,
     ( Delta >= 0 -> Accept = true
     ; Probability is exp(Delta / Temp),
