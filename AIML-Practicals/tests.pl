@@ -29,7 +29,7 @@ test(greedy_best_first) :- greedy_best_first(a, g, Path), Path = [a,_,_,g].
 test(a_star) :- a_star(a, g, Path, Cost), Path = [a,_,_,g], Cost =:= 7.
 test(hill_climbing) :- hill_climb(0, 3, 9).
 test(simulated_annealing) :- anneal(0, X, Value), integer(X), X >= -10, X =< 10, number(Value).
-test(map_coloring) :- map_coloring(S), member(sa-blue, S), member(wa-red, S).
+test(map_coloring) :- map_coloring(S), member(wa-WA, S), member(nt-NT, S), WA \= NT, member(sa-SA, S), WA \= SA, NT \= SA.
 test(n_queens) :- n_queens(4, Board), length(Board, 4).
 
 :- end_tests(aiml_practicals).
